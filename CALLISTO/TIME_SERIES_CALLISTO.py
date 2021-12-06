@@ -1,4 +1,5 @@
 import os
+import radiospectra
 from radiospectra.sources.callisto import CallistoSpectrogram
 from callistoDownloader import callistoDownloader as cd
 from astropy.io import fits
@@ -12,10 +13,16 @@ from astropy.io import fits
 #KOREA UT FROM 22:30:00 TO 24:00:000
 #KOREA UT FROM 00:00:00 TO 08:00:00
 
-DATE1="2021-11-16"
-tstart, tend = DATE1+"T22:30:00", DATE1+"T23:45:00"
-#DATE2="2021-11-17"
+DATE1="2021-12-04"
+tstart, tend = DATE1+"T22:30:00", DATE1+"T24:00:00"
+#tstart, tend = DATE1+"T22:30:00", DATE1+"T25:45:00"
+
+#DATE2="2021-12-04"
 #tstart, tend = DATE2+"T00:00:00", DATE2+"T08:00:00"
+
+#EVENT_3-HUMAIN-BELGIUM
+#DATE3="2011-08-01"
+#tstart, tend = DATE3+"T08:00:00", DATE3+"T08:15:00"
 
 #PLEASE USE THIS, IF YOUR COMPUTER FAST. 
 """
@@ -26,12 +33,24 @@ tstart, tend = DATE1+"T22:30:00", DATE2+"T08:00:00"
 callisto = CallistoSpectrogram.from_range("KASI", tstart, tend)
 callisto_nobg = callisto.subtract_bg()
 callisto_nobg.peek(vmin=0)
+#callisto.peek()
 
 
 #EVENT_1
-#DATE2="2011-08-04"
-#tstart, tend = DATE2+"T03:50:00", DATE2+"T04:15:00"
+#DATE3="2011-08-04"
+#tstart, tend = DATE3+"T03:50:00", DATE3+"T04:15:00"
 
+#EVENT_2-BLEN5M-SWISS
+#DATE3="2007-05-19"
+#tstart, tend = DATE3+"T12:45:00", DATE3+"T13:00:00"
+
+#EVENT_3-HUMAIN-BELGIUM
+#DATE3="2011-08-01"
+#tstart, tend = DATE3+"T07:45:00", DATE3+"T08:00:00"
+
+#EVENT_4-KRIM-UKRINE-INTERFERENCE FROM THE SURFACE OF SEA.
+#DATE3="2012-01-21"
+#tstart, tend = DATE3+"T05:15:00", DATE3+"T05:30:00"
 
 
 
